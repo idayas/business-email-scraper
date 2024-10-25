@@ -6,6 +6,7 @@ let browser: Browser | null = null;
     try {
         browser = await chromium.launch();
         const page: Page = await browser.newPage();
+        page.setDefaultNavigationTimeout(5000)
         await page.goto(url);
         
         // Get the entire page content
